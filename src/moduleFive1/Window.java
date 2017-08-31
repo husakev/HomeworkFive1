@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import static moduleFive1.Snowman.*;
 /**
  * Created by Евгений on 05.08.2017.
  */
@@ -24,7 +25,7 @@ import javafx.stage.Stage;
 public class Window extends Application {
     static double wind = 680;
     static Circle[] circle;
-
+    static Scene scene;
     public static void main(String... args) {
         launch(args);
     }
@@ -35,15 +36,15 @@ public class Window extends Application {
         Color color = Color.color(Math.random(), Math.random(), Math.random());
         circleF[0] = new Circle(wind / 2,
                 circle[circle.length - 1].getCenterY() + (radius / 3),
-                5 + Math.random() * (radius / 3),
+                3 + Math.random() * (radius / 4),
                 Paint.valueOf(color.toString()));
         circleF[1] = new Circle((wind / 2) - (radius / 3),
                 circle[circle.length - 1].getCenterY() - (radius / 3),
-                3 + Math.random() * (radius / 5),
+                2 + Math.random() * (radius / 6),
                 Paint.valueOf(color.toString()));
         circleF[2] = new Circle((wind / 2) + (radius / 2),
                 circle[circle.length - 1].getCenterY() - (radius / 3),
-                3 + Math.random() * (radius / 5),
+                2 + Math.random() * (radius / 6),
                 Paint.valueOf(color.toString()));
         return circleF;
     }
@@ -51,12 +52,12 @@ public class Window extends Application {
     public static Circle[] circle(int count) {
         circle = new Circle[count];
         for (int i = 0; i < circle.length; i++) {
-            double radius = Snowman.min + Math.random() * Snowman.max;
+            double radius = min + Math.random() * max;
             Color color = Color.color(Math.random(), Math.random(), Math.random());
             if (i == 0) {
-                circle[i] = new Circle(wind / 2, wind - radius - 39, radius,
-                        Paint.valueOf(color.toString())); // -39 из-за того что 1 круг перекрывает
-            }                                         // немного. Можете убрать и увидете
+                circle[i] = new Circle(wind / 2, wind - radius, radius,
+                        Paint.valueOf(color.toString()));
+            }
             else {
                 circle[i] = new Circle(wind / 2,
                         circle[i - 1].getCenterY() - circle[i - 1].getRadius()
@@ -69,21 +70,19 @@ public class Window extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Snowman");
-        primaryStage.setWidth(wind);
-        primaryStage.setHeight(wind);
         Pane pane = new Pane();
-        pane.getChildren().addAll(circle(Snowman.count));
+        pane.getChildren().addAll(circle(count));
         pane.getChildren().addAll(face(3));
-        Button button = new Button();
-        Scene scene = new Scene(pane);
-        button.setTranslateX(600);
-        button.setTranslateY(600);
-        button.setText("show");
-        button.setOnMouseClicked(event -> {
+        Button button = new Button("show");
+        scene = new Scene(pane, wind, wind);// если писать primaryStage.setWidth и
+        button.setTranslateX(600); // Height то низ снеговика в открывающимся окне немного
+        button.setTranslateY(600); // закрывался рамкой окна. приходилось отнимать 39 от
+        button.setOnMouseClicked(event -> { // основания, чтоб норм видно было
             pane.getChildren().clear();
-            pane.getChildren().addAll(circle(Snowman.count));
+            pane.getChildren().addAll(circle(count));
             pane.getChildren().addAll(face(3));
             pane.getChildren().addAll(button);
+
         });
         pane.getChildren().addAll(button);
         primaryStage.setScene(scene);
