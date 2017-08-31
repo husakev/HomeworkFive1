@@ -10,10 +10,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-import java.util.Arrays;
-
 import static moduleFive1.Window.*;
-
 /**
  * Created by Евгений on 29.08.2017.
  */
@@ -29,18 +26,6 @@ public class Additionali extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-    public static void circleSort() {
-        double[] sort = new double[Snowman.count];
-        for (int i = 0; i < Snowman.count; i++) {
-            sort[i] = Double.parseDouble(String.valueOf(circle[i]));
-        }
-        Arrays.sort(sort);
-        for (int i = Snowman.count; i >= 0; i--) {
-            circle[i].setRadius(sort[i]);
-        }
-    }
-
     public static Circle[] circleRgb(int count) {
         double rgb = 0.0;
         double sum = 0.9 / (count - 1);
@@ -95,6 +80,7 @@ public class Additionali extends Application {
             Snowman.min = Integer.parseInt(min.getText());
             Snowman.max = Integer.parseInt(max.getText());
             pane.getChildren().addAll(circle(Snowman.count));
+
             pane.getChildren().addAll(Window.face(3));
             pane.getChildren().addAll(buttonRed);
             pane.getChildren().addAll(buttonGradient);
@@ -107,7 +93,7 @@ public class Additionali extends Application {
             buttonGradient.setOnAction(event1 -> {
                 circleRgb(Snowman.count);
             });
-            circleSort();
+
             primaryStage.setScene(scene);
         });
         primaryStage.setScene(scene);

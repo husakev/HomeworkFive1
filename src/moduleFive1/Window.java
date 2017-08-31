@@ -10,6 +10,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import static moduleFive1.Snowman.*;
+
 /**
  * Created by Евгений on 05.08.2017.
  */
@@ -26,6 +27,7 @@ public class Window extends Application {
     static double wind = 680;
     static Circle[] circle;
     static Scene scene;
+
     public static void main(String... args) {
         launch(args);
     }
@@ -57,8 +59,7 @@ public class Window extends Application {
             if (i == 0) {
                 circle[i] = new Circle(wind / 2, wind - radius, radius,
                         Paint.valueOf(color.toString()));
-            }
-            else {
+            } else {
                 circle[i] = new Circle(wind / 2,
                         circle[i - 1].getCenterY() - circle[i - 1].getRadius()
                                 - radius, radius, Paint.valueOf(color.toString()));
