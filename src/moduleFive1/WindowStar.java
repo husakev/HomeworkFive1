@@ -45,26 +45,46 @@ public class WindowStar extends Application {
         double y = circle.getCenterY();
         double r = circle.getRadius();
 
-        double xpoints[] = {x - r * 0.23,
-                x,
-                x + r * 0.23,
-                x + r * 0.95,
-                x + r * 0.24,
-                x + r * 0.81,
-                x,
-                x - r * 0.59,
-                x - r * 0.24,
-                x - r * 0.95};
-        double ypoints[] = {y - circle.getRadius() *
-                y - r,
-                y - r * 0.31,
-                y - r * 0.31,
-                y + r * 0.07,
-                y + r * 0.59,
-                y + r * 0.4,
-                y + r * 0.81,
-                y + r * 0.07,
-                y - r * 0.31};
+        double xpoints[] = {//x - r * 0.23,
+                265.5,
+                //x,
+                300,
+                //x + r * 0.23,
+                334.5,
+                //x + r * 0.95,
+                442.5,
+                //x + r * 0.36,
+                354,
+                //x + r * 0.59,
+                388.5,
+                //x,
+                300,
+                //x - r * 0.59,
+                211,
+                //x - r * 0.36,
+                246,
+                //x - r * 0.95
+                158};
+        double ypoints[] = {//y - r * 0.31,
+                254,
+                //y - r,
+                150,
+                //y - r * 0.31,
+                253.5,
+                //y - r * 0.31,
+                253.5,
+                //y + r * 0.09,
+                313.5,
+                //y + r * 0.75,
+                412.5,
+                //y + r * 0.34,
+                351,
+                //y + r * 0.75,
+                412.5,
+                //y + r * 0.09,
+                313.5,
+                //y - r * 0.31
+                253.5};
         gc.strokePolygon(xpoints, ypoints, xpoints.length);
     }
 
