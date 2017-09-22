@@ -23,7 +23,7 @@ import static moduleFive1.Snowman.*;
 на теле должны быть рандомизированы. Нет последовательности на уменьшение или
 увеличение. Данные вводятся через консоль: кол-во кругов, мин. радиус круга, макс.
 радиус круга */
-public class Window extends Application {
+public class WindowSnowman extends Application {
     static double wind = 680;
     static Circle[] circle;
     static Scene scene;
