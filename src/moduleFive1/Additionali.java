@@ -10,7 +10,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-import static moduleFive1.Window.*;
+import static moduleFive1.WindowSnowman.*;
 /**
  * Created by Евгений on 29.08.2017.
  */
@@ -44,7 +44,6 @@ public class Additionali extends Application {
         TextField count = new TextField();
         TextField min = new TextField();
         TextField max = new TextField();
-        count.textFormatterProperty();
         Button buttonNext = new Button("Next");
         Button buttonRed = new Button("Red");
         Button buttonGradient = new Button("Gradient");
@@ -81,7 +80,7 @@ public class Additionali extends Application {
             Snowman.max = Integer.parseInt(max.getText());
             pane.getChildren().addAll(circle(Snowman.count));
 
-            pane.getChildren().addAll(Window.face(3));
+            pane.getChildren().addAll(WindowSnowman.face(3));
             pane.getChildren().addAll(buttonRed);
             pane.getChildren().addAll(buttonGradient);
             buttonRed.setOnAction(event1 -> {

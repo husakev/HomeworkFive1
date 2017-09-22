@@ -30,7 +30,7 @@ public class Snowman {
                     "кругов, введите максимальный радиус кругов, от 40  до 80");
             max = scanner();
         }
-        Window.main();
+        WindowSnowman.main();
     }
 
     public static int scanner() {

@@ -29,6 +29,7 @@ public class WindowSnowman extends Application {
     static Scene scene;
 
     public static void main(String... args) {
+
         launch(args);
     }
 
