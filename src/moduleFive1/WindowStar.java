@@ -66,7 +66,7 @@ public class WindowStar extends Application {
                 //x - r * 0.95
                 158};
         double ypoints[] = {//y - r * 0.31,
-                254,
+                253.5,
                 //y - r,
                 150,
                 //y - r * 0.31,
